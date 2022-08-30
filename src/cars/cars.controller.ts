@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Param } from '@nestjs/common';
@@ -12,8 +13,8 @@ export class CarsController {
     return this.carsService.findAll();
   }
 
-  //@Get(':id')
-  //getCarById(@Param('id') id: string) {
-
-  //}
+  @Get(':id')
+  async getCarById(@Param('id') id: string) {
+    return this.carsService.findOneById(+id)
+  }
 }
