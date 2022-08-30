@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
 
 @Controller('cars')
@@ -14,7 +14,8 @@ export class CarsController {
   }
 
   @Get(':id')
-  async getCarById(@Param('id') id: string) {
-    return this.carsService.findOneById(+id)
+  async getCarById(@Param('id', ParseIntPipe) id: number) {
+    return this.carsService.findOneById( id )
   }
+  
 }
