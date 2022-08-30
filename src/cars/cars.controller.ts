@@ -10,10 +10,9 @@ export class CarsController {
   getAllcars() {
     return this.cars;
   }
+  
   @Get(':id')
-  getCarById(@Param('id') id) {
-    return {
-        id
-    }
+  getCarById(@Param('id') id: string) {
+    return this.cars[id]
   }
 }
