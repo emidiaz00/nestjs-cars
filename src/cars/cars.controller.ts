@@ -3,6 +3,7 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { CreateCarDto } from './dto/create-car.dto';
 
 @Controller('cars')
 export class CarsController {
@@ -19,7 +20,7 @@ export class CarsController {
   }
 
   @Post()
-  createCars(@Body() createCarsDto: any) {
+  createCars(@Body() createCarsDto: CreateCarDto) {
     return {
       createCarsDto
     }
