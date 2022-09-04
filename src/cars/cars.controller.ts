@@ -21,9 +21,7 @@ export class CarsController {
 
   @Post()
   createCars(@Body() createCarsDto: CreateCarDto) {
-    return {
-      createCarsDto
-    }
+    return this.carsService.createCar( createCarsDto )
   }
   @Patch(':id') 
   updateCars( @Param('id', ParseIntPipe) id:number, createCarsDto: any) {
