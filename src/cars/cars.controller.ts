@@ -24,13 +24,15 @@ export class CarsController {
     return this.carsService.createCar( createCarsDto )
   }
   @Patch(':id') 
-  updateCars( @Param('id', ParseIntPipe) id:number, createCarsDto: any) {
+  updateCars( 
+  @Param('id', ParseUUIDPipe) id: string, 
+  @Body() createCarsDto: CreateCarDto) {
     return {
       createCarsDto
     }
   }
   @Delete(':id') 
-  deleteCars( @Param('id', ParseIntPipe) id: number) {
+  deleteCars( @Param('id', ParseIntPipe) id: string) {
     return {
       method: 'Delete',
       id
