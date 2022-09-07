@@ -6,7 +6,8 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 
 @Controller('brands')
 export class BrandsController {
-  constructor(private readonly brandsService: BrandsService) {}
+  constructor(private readonly brandsService: BrandsService
+  ) {}
 
   @Post()
   create(@Body() createBrandDto: CreateBrandDto) {

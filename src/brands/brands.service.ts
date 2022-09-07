@@ -4,6 +4,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { Brand } from './entities/brand.entity';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class BrandsService {
@@ -19,7 +20,7 @@ export class BrandsService {
     const brand: Brand = {
       id: uuid(),
       name: createBrandDto.name,
-      createdAt: new Date().getTime()
+      createdAt: new Date().getTime(),
     };
     this.brands.push(brand);
     return brand;
@@ -46,7 +47,5 @@ export class BrandsService {
     return `This action removes a #${id} brand`;
   }
 }
-function uuid(): string {
-  throw new Error('Function not implemented.');
-}
+
 
