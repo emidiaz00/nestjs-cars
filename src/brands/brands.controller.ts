@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { BrandsService } from './brands.service';
 import { CreateBrandDto } from './dto/create-brand.dto';
@@ -19,7 +20,7 @@ export class BrandsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.brandsService.findOne(+id);
+    return this.brandsService.findOne(id);
   }
 
   @Patch(':id')
