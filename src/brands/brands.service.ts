@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
@@ -15,7 +16,14 @@ export class BrandsService {
     }
   ]
   create(createBrandDto: CreateBrandDto) {
-    return 'This action adds a new brand';
+    const brand: Brand = {
+      id: uuid(),
+      name: createBrandDto.name,
+      createdAt: new Date().getTime()
+    };
+    this.brands.push(brand);
+    return brand;
+    
   }
 
   findAll() {
