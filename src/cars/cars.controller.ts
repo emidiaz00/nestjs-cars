@@ -28,9 +28,7 @@ export class CarsController {
   updateCars( 
   @Param('id', ParseUUIDPipe) id: string, 
   @Body() updateCarDto: UpdateCarDto) {
-    return {
-      updateCarDto
-    }
+    return this.carsService.updateCar(id, updateCarDto)
   }
   @Delete(':id') 
   deleteCars( @Param('id', ParseIntPipe) id: string) {
